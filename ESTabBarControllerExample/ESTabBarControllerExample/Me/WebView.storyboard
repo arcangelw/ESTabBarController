@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YUJ-pc-ra9">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YUJ-pc-ra9">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,10 +19,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nZW-U2-6aG">
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f76-bn-Kub">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CrX-Zc-dqe">
                                 <rect key="frame" x="279" y="593" width="80" height="42"/>
                                 <constraints>
@@ -42,17 +43,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="f76-bn-Kub" firstAttribute="leading" secondItem="GDD-BA-M6v" secondAttribute="leading" id="44D-J1-WyY"/>
+                            <constraint firstAttribute="trailing" secondItem="f76-bn-Kub" secondAttribute="trailing" id="75t-wm-8Z7"/>
                             <constraint firstItem="05R-8u-yjy" firstAttribute="top" secondItem="CrX-Zc-dqe" secondAttribute="bottom" constant="32" id="7LT-va-OCv"/>
-                            <constraint firstAttribute="trailing" secondItem="nZW-U2-6aG" secondAttribute="trailing" id="R70-5a-hFf"/>
+                            <constraint firstAttribute="bottom" secondItem="f76-bn-Kub" secondAttribute="bottom" id="QvV-Or-P2e"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CrX-Zc-dqe" secondAttribute="trailing" id="dMf-UK-QBX"/>
-                            <constraint firstItem="nZW-U2-6aG" firstAttribute="leading" secondItem="GDD-BA-M6v" secondAttribute="leading" id="gCS-db-ihp"/>
-                            <constraint firstItem="nZW-U2-6aG" firstAttribute="top" secondItem="GDD-BA-M6v" secondAttribute="top" id="gf3-Ic-gqJ"/>
-                            <constraint firstItem="05R-8u-yjy" firstAttribute="top" secondItem="nZW-U2-6aG" secondAttribute="bottom" id="lfz-Qd-5sJ"/>
+                            <constraint firstItem="f76-bn-Kub" firstAttribute="top" secondItem="GDD-BA-M6v" secondAttribute="top" id="kHF-jd-LUc"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="dismissButton" destination="CrX-Zc-dqe" id="cdh-qa-TK7"/>
-                        <outlet property="webView" destination="nZW-U2-6aG" id="HB4-pa-INp"/>
+                        <outlet property="webView" destination="f76-bn-Kub" id="7tC-n5-J20"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MwV-LG-3jI" userLabel="First Responder" sceneMemberID="firstResponder"/>

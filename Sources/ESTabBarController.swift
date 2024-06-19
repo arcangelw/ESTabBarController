@@ -24,6 +24,9 @@
 //
 
 import UIKit
+#if DEBUG
+import OSLog
+#endif
 
 /// 是否需要自定义点击事件回调类型
 public typealias ESTabBarControllerShouldHijackHandler = ((_ tabBarController: UITabBarController, _ viewController: UIViewController, _ index: Int) -> (Bool))
@@ -33,9 +36,9 @@ public typealias ESTabBarControllerDidHijackHandler = ((_ tabBarController: UITa
 open class ESTabBarController: UITabBarController, ESTabBarDelegate {
     
     /// 打印异常
-    public static func printError(_ description: String) {
+    public static func printError(_ description: String, file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
         #if DEBUG
-            print("ERROR: ESTabBarController catch an error '\(description)' \n")
+        os_log("%{public}@", log: .default, type: .debug, "ESTabBarController catch an error [file: \(file), function: \(function), line: \(line)], desc: '\(description)']")
         #endif
     }
     

@@ -87,21 +87,17 @@ class ExampleIrregularityContentView: ESTabBarItemContentView {
     }
     
     public override func highlightAnimation(animated: Bool, completion: (() -> ())?) {
-        UIView.beginAnimations("small", context: nil)
-        UIView.setAnimationDuration(0.2)
-        let transform = self.imageView.transform.scaledBy(x: 0.8, y: 0.8)
-        self.imageView.transform = transform
-        UIView.commitAnimations()
-        completion?()
+        UIView.animate(withDuration: 0.2, animations: {
+            let transform = self.imageView.transform.scaledBy(x: 0.8, y: 0.8)
+            self.imageView.transform = transform
+        }, completion: { _ in completion?() })
     }
     
     public override func dehighlightAnimation(animated: Bool, completion: (() -> ())?) {
-        UIView.beginAnimations("big", context: nil)
-        UIView.setAnimationDuration(0.2)
-        let transform = CGAffineTransform.identity
-        self.imageView.transform = transform
-        UIView.commitAnimations()
-        completion?()
+        UIView.animate(withDuration: 0.2, animations: {
+            let transform = CGAffineTransform.identity
+            self.imageView.transform = transform
+        }, completion: { _ in completion?() })
     }
     
     private func playMaskAnimation(animateView view: UIView, target: UIView, completion: (() -> ())?) {

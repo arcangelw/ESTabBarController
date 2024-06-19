@@ -23,21 +23,17 @@ class ExampleHighlightableContentView: ExampleBackgroundContentView {
     }
     
     override func highlightAnimation(animated: Bool, completion: (() -> ())?) {
-        UIView.beginAnimations("small", context: nil)
-        UIView.setAnimationDuration(0.2)
-        let transform = imageView.transform.scaledBy(x: 0.8, y: 0.8)
-        imageView.transform = transform
-        UIView.commitAnimations()
-        completion?()
+        UIView.animate(withDuration: 0.2, animations: {
+            let transform = self.imageView.transform.scaledBy(x: 0.8, y: 0.8)
+            self.imageView.transform = transform
+        }, completion: { _ in completion?()})
     }
     
     override func dehighlightAnimation(animated: Bool, completion: (() -> ())?) {
-        UIView.beginAnimations("big", context: nil)
-        UIView.setAnimationDuration(0.2)
-        let transform = CGAffineTransform.identity
-        imageView.transform = transform.scaledBy(x: 1.15, y: 1.15)
-        UIView.commitAnimations()
-        completion?()
+        UIView.animate(withDuration: 0.2, animations: {
+            let transform = CGAffineTransform.identity
+            self.imageView.transform = transform.scaledBy(x: 1.15, y: 1.15)
+        }, completion: { _ in completion?()})
     }
     
 }

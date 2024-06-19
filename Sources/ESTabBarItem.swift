@@ -39,7 +39,7 @@ import UIKit
 ///     1. func setBadgeTextAttributes(_ textAttributes: [String : Any]?, for state: UIControlState)
 ///     2. func badgeTextAttributes(for state: UIControlState) -> [String : Any]?
 ///
-@available(iOS 8.0, *)
+@available(iOS 13.0, *)
 open class ESTabBarItem: UITabBarItem {
     
     // MARK: UIView properties
@@ -94,7 +94,7 @@ open class ESTabBarItem: UITabBarItem {
     }
     
     /// The background color to apply to the badge, make it available for iOS8.0 and later. If this item displays a badge, this color will be used for the badge's background. If set to nil, the default background color will be used instead.
-    @available(iOS 8.0, *)
+    @available(iOS 13.0, *)
     open override var badgeColor: UIColor? {
         get { return contentView.badgeColor }
         set(newValue) { contentView.badgeColor = newValue }
